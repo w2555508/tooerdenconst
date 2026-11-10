@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ТОО Ерден Констракшн — продажа битума</title>
+<meta name="description" content="ТОО Ерден Констракшн: продажа битума БНД и БН. Подбор марки, расчёт объёма, доставка.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">ЕРДЕН КОНСТРАКШН<small>ТОО · продажа битума</small></a>
+    <nav aria-label="Разделы">
+      <a href="#products">Марки битума</a>
+      <a href="#why">Условия</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="tel:+77774400404">+7 777 440 04 04</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Битум для дорог и гидроизоляции</h1>
+      <p>ТОО Ерден Констракшн продаёт битум. Подскажем марку под вашу задачу, посчитаем объём и организуем доставку.</p>
+      <div class="acts">
+        <a class="btn" href="#contacts">Оставить заявку</a>
+        <a class="btn ghost" href="tel:+77774400404">Позвонить</a>
+      </div>
+      <div class="lane" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>Марки битума</h2>
+      <p class="lead">Основные марки в продаже. Не уверены, какая нужна, — назовите задачу, и мы подберём.</p>
+      <div class="scroll" tabindex="0" role="region" aria-label="Таблица марок битума">
+        <table>
+          <thead><tr><th>Марка</th><th>Для чего подходит</th></tr></thead>
+          <tbody>
+            <tr><td>БНД 40/60</td><td>Дорожные покрытия в жарком климате, площадки с высокой нагрузкой.</td></tr>
+            <tr><td>БНД 60/90</td><td>Асфальтобетон для дорог в умеренном климате: самая востребованная марка.</td></tr>
+            <tr><td>БНД 90/130</td><td>Дорожное строительство в холодных регионах, ремонт покрытий.</td></tr>
+            <tr><td>БН 70/30</td><td>Строительный битум: гидроизоляция, кровля, мастики.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" style="padding-top:0">
+    <div class="wrap">
+      <h2>Как мы работаем</h2>
+      <p class="lead">Коротко о том, что вы получаете при заказе.</p>
+      <div class="why">
+        <div><h3>Подбор марки</h3><p>Расскажите, где будете применять битум, и мы назовём подходящую марку.</p></div>
+        <div><h3>Документы на партию</h3><p>К поставке прилагаем документы на товар. Состав пакета уточняйте при заказе.</p></div>
+        <div><h3>Доставка</h3><p>Привезём битум на объект. Стоимость и сроки назовём после заявки.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="wrap cols">
+      <div>
+        <h2>Контакты</h2>
+        <a class="phone" href="tel:+77774400404">+7 777 440 04 04</a>
+        <p class="lead" style="margin-bottom:0">Звоните или пишите в WhatsApp — ответим в рабочее время.</p>
+        <ul class="info">
+          <li><b>Компания:</b> ТОО Ерден Констракшн</li>
+          <li id="addr" hidden><b>Адрес:</b> <span id="addrText"></span></li>
+        </ul>
+      </div>
+
+      <form id="lead" novalidate>
+        <label>Ваше имя
+          <input name="name" autocomplete="name" required>
+        </label>
+        <label>Телефон
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___ __ __" required>
+        </label>
+        <label>Марка битума
+          <select name="grade">
+            <option>Нужна помощь с выбором</option>
+            <option>БНД 40/60</option>
+            <option>БНД 60/90</option>
+            <option>БНД 90/130</option>
+            <option>БН 70/30</option>
+          </select>
+        </label>
+        <label>Объём и комментарий
+          <textarea name="msg" placeholder="Например: 20 тонн, доставка в Алматы"></textarea>
+        </label>
+        <button class="btn" type="submit">Отправить в WhatsApp</button>
+        <p class="status" id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> ТОО Ерден Констракшн</span>
+    <span>Продажа битума</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Настройки: впишите адрес, и он появится в контактах.
+  var CONFIG = {
+    phone: "77774400404",
+    address: "" // например: "г. Алматы, ул. Примерная, 1"
+  };
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  if (CONFIG.address) {
+    document.getElementById("addrText").textContent = CONFIG.address;
+    document.getElementById("addr").hidden = false;
+  }
+
+  var form = document.getElementById("lead");
+  var status = document.getElementById("status");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = new FormData(form);
+    var name = (d.get("name") || "").trim();
+    var phone = (d.get("phone") || "").trim();
+    status.className = "status";
+
+    if (!name || phone.replace(/\D/g, "").length < 10) {
+      status.className = "status err";
+      status.textContent = "Укажите имя и номер телефона полностью.";
+      return;
+    }
+
+    var text = "Здравствуйте! Заявка с сайта.\n" +
+      "Имя: " + name + "\n" +
+      "Телефон: " + phone + "\n" +
+      "Марка: " + d.get("grade") +
+      (d.get("msg").trim() ? "\nКомментарий: " + d.get("msg").trim() : "");
+
+    window.open("https://wa.me/" + CONFIG.phone + "?text=" + encodeURIComponent(text), "_blank", "noopener");
+    status.textContent = "Открываем WhatsApp. Отправьте сообщение, и мы свяжемся с вами.";
+  });
+})();
+</script>
+</body>
+</html>
